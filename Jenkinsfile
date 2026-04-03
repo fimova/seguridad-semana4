@@ -1,10 +1,6 @@
 pipeline {
     agent any
 
-    tools {
-        maven 'Maven'
-    }
-
     stages {
         stage('Build') {
             steps {
@@ -17,7 +13,7 @@ pipeline {
                 withSonarQubeEnv('sonarqube') {
                     sh '''
                     mvn sonar:sonar \
-                      -Dsonar.projectKey=devops-app
+                      -Dsonar.projectKey=seguridad-semana4
                     '''
                 }
             }
